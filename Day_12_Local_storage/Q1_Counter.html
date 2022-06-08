@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Value</title>
+</head>
+<body>
+    <h1></h1>
+    <input type="submit" value="Increment">
+    <input type="submit" value="Decrement">
+</body>
+</html>
+
+<script>
+    let count=localStorage.getItem("localcount") || 0;
+    document.querySelector("h1+input").addEventListener("click",IncNumber)
+    document.querySelector("h1").innerText=count; 
+    
+    function IncNumber(){
+        count++;
+        document.querySelector("h1").innerText=count;
+        localStorage.setItem("localcount",count);
+    }
+
+    document.querySelector("input+input").addEventListener("click",DecNumber)
+
+    function DecNumber(){
+        count--;
+        document.querySelector("h1").innerText=count;
+        localStorage.setItem("localcount",count);
+    }
+</script>
